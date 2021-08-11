@@ -49,7 +49,7 @@ func (m *mockS3) GetObject(input *s3.GetObjectInput) (*s3.GetObjectOutput, error
 	return args.Get(0).(*s3.GetObjectOutput), args.Error(1)
 }
 
-func (m *mockS3) ListObjectsV2Pages(input *s3.ListObjectsV2Input, fn func(*s3.ListObjectsV2Output, bool) bool) error {
+func (m *mockS3) ListObjectsPages(input *s3.ListObjectsInput, fn func(*s3.ListObjectsOutput, bool) bool) error {
 	args := m.Called(input, fn)
 	return args.Error(0)
 }
